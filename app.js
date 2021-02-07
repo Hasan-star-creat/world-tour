@@ -4,19 +4,21 @@ fetch('https://restcountries.eu/rest/v2/all')
  
   const countriesDiv = document.getElementById('countries');
 const displayCountries = countries => {
-     for (let i = 0; i < countries.length; i++){
-         const countrie = countries[i];
-         const countrieDiv = document.createElement('div')
+            countries.forEach(countrie => {
+                const countrieDiv = document.createElement('div')
          
-       countrieDiv.className = 'country'
-        const countryInfo = `
-            <h3 class=" country-name">Countre Name: ${countrie.name}</h3>
-            <p> Capital: ${countrie.capital}</p>
-        `;
-        countrieDiv.innerHTML = countryInfo;
-         countriesDiv.appendChild(countrieDiv)
-         
-     }
+                countrieDiv.className = 'country'
+                const countryInfo = `
+                    <h3 class=" country-name">Countre Name: ${countrie.name}</h3>
+                    <p> Capital: ${countrie.capital}</p>
+                `;
+                countrieDiv.innerHTML = countryInfo;
+                 countriesDiv.appendChild(countrieDiv)
+                 
+             
+            });
+        }
+       
         //   li.innerText = countrie.name;
         //   ul.appendChild(li);
          
@@ -28,5 +30,6 @@ const displayCountries = countries => {
         //  const p = document.createElement('p');
         //  p.innerText = countrie.capital;
         //  countrieDiv.appendChild(p)
+
+        // for (let i = 0; i < countries.length; i++){  const countrie = countries[i]; }
          
-}
